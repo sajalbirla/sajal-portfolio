@@ -5,26 +5,25 @@ import logo from "../assets/logo.png";
 const Header = () => {
   const headeroptions = [
     {
-      id: 1,
+      id: "about",
       Name: "About",
     },
     {
-      id: 2,
+      id: "experience",
       Name: "Experience",
     },
     {
-      id: 3,
+      id: "contact",
       Name: "Contact",
     },
   ];
-  const [activeTab, setActiveTab] = useState("About");
+  const [activeTab, setActiveTab] = useState("about");
   const activeTabHandler = (val) => {
     window.location.href = `#${val}`;
     setActiveTab(val);
   };
 
   return (
-    <>
       <div className="header">
         <div className="header-logo">
           <span class="header-logo-text">&lt;</span>
@@ -36,9 +35,9 @@ const Header = () => {
             <div
               key={id}
               onClick={() => {
-                activeTabHandler(option.Name);
+                activeTabHandler(option.id);
               }}
-              className={`header-bar-options  ${activeTab === option.Name && "header-bar-options-active"
+              className={`header-bar-options  ${activeTab === option.id && "header-bar-options-active"
                 }`}
             >
               {option.Name}
@@ -46,7 +45,6 @@ const Header = () => {
           ))}
         </div>
       </div>
-    </>
   );
 };
 export default Header;
