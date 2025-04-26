@@ -1,37 +1,36 @@
 import React, { useState } from "react";
 import DownloadIcon from "@mui/icons-material/Download";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   const headeroptions = [
     {
       id: 1,
-      Name: "about",
+      Name: "About",
     },
     {
       id: 2,
-      Name: "portfolio",
+      Name: "Experience",
     },
     {
       id: 3,
-      Name: "contact",
+      Name: "Contact",
     },
   ];
-  const [activeTab, setActiveTab] = useState("about");
+  const [activeTab, setActiveTab] = useState("About");
   const activeTabHandler = (val) => {
     window.location.href = `#${val}`;
     setActiveTab(val);
   };
-  const DownloadResume = () => {
-    window.location.href =
-      "/portfolio-website/Resume_Sajal_Birla_Developer.pdf";
-  };
-
-  const DarkModeHandler = () => {};
 
   return (
     <>
       <div className="header">
-        {/* <div className="header-logo"></div> */}
+        <div className="header-logo">
+          <span class="header-logo-text">&lt;</span>
+          <img src={logo} />
+          <span class="header-logo-text">/&gt;</span>
+        </div>
         <div className="header-bar">
           {headeroptions.map((option, id) => (
             <div
@@ -39,18 +38,13 @@ const Header = () => {
               onClick={() => {
                 activeTabHandler(option.Name);
               }}
-              className={`header-bar-options  ${
-                activeTab === option.Name && "header-bar-options-active"
-              }`}
+              className={`header-bar-options  ${activeTab === option.Name && "header-bar-options-active"
+                }`}
             >
               {option.Name}
             </div>
           ))}
         </div>
-        <button className="header-button" onClick={DownloadResume}>
-          <DownloadIcon /> Resume 
-        </button>
-        {/* <button onClick={DarkModeHandler}>Dark Mode</button> */}
       </div>
     </>
   );
