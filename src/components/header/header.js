@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import DownloadIcon from "@mui/icons-material/Download";
 import logo from "../assets/logo.png";
+import { enableDarkMode } from "../common/helperFunction";
 
 const Header = () => {
   const headeroptions = [
@@ -17,34 +17,35 @@ const Header = () => {
       Name: "Contact",
     },
   ];
-  const [activeTab, setActiveTab] = useState("about");
+  const [activeTab, setActiveTab] = useState(headeroptions[0].id);
   const activeTabHandler = (val) => {
     window.location.href = `#${val}`;
     setActiveTab(val);
   };
 
   return (
-      <div className="header">
-        <div className="header-logo">
-          <span class="header-logo-text">&lt;</span>
-          <img src={logo} />
-          <span class="header-logo-text">/&gt;</span>
-        </div>
-        <div className="header-bar">
-          {headeroptions.map((option, id) => (
-            <div
-              key={id}
-              onClick={() => {
-                activeTabHandler(option.id);
-              }}
-              className={`header-bar-options  ${activeTab === option.id && "header-bar-options-active"
-                }`}
-            >
-              {option.Name}
-            </div>
-          ))}
-        </div>
+    <div className="header">
+      <div className="header-logo">
+        <span class="header-logo-text">&lt;</span>
+        <img src={logo} />
+        <span class="header-logo-text">/&gt;</span>
       </div>
+      <div className="header-bar">
+        {headeroptions.map((option, id) => (
+          <div
+            key={id}
+            onClick={() => {
+              activeTabHandler(option.id);
+            }}
+            className={`header-bar-options  ${activeTab === option.id && "header-bar-options-active"
+              }`}
+          >
+            {option.Name}
+          </div>
+        ))}
+      </div>
+      <button onClick={enableDarkMode}>click me</button>
+    </div>
   );
 };
 export default Header;

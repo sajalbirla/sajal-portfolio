@@ -2,37 +2,47 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $background_color;
   padding: 10px;
   height: 90px;
   position: sticky;
-  top:0;
+  top: 0;
   z-index: 1;
-  &-logo{
+
+  &-logo {
     display: flex;
     align-items: center;
-    img{
+
+    &-text {
+      font-size: 40px;
+      font-weight: 100;
+    }
+
+    img {
       width: 10rem;
     }
   }
+
   &-bar {
-    display: flex;  
+    display: flex;
     justify-content: space-around;
     width: 45%;
-    color: #ff3333;
     cursor: pointer;
+
     &-options {
-      color: #c6c6c8;
+      color: $header-unavailable;
       font-size: 22px;
       font-family: "Tilt Neon", sans-serif;
+
       &-active {
-        color: #000000;
+        color: $text_color;
       }
-      &:hover {
-        color: #000000;
-      }
+
+      // &:hover {
+      //   color: $selected-header;
+      // }
     }
   }
+
   &-button {
     display: flex;
     align-items: center;
