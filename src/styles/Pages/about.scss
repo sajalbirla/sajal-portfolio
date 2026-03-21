@@ -1,31 +1,44 @@
 .about {
-  // max-width: 1250px;
-  // margin: auto;
-  // background-color: rgb(255, 255, 255);
   padding: 1rem;
   height: 650px;
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
   &-details {
-    // background-color: antiquewhite;
     &-tag {
       font-size: 20px;
       margin-right: 0.5rem;
     }
+
     &-name {
       font-family: "Roboto Mono", monospace;
       font-size: 25px;
       font-weight: bold;
     }
+
     &-role {
       font-family: "Roboto Mono", monospace;
       margin: 1rem 0;
       font-size: 20px;
     }
+
+    &-contact {
+      border: none;
+      background-color: rgb(2, 22, 122);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      height: 40px;
+      margin-right: 25px;
+      padding: 10px;
+      width: 140px;
+    }
+
     &-resume {
       border: none;
-      background-color: purple;
+      background-color: rgb(2, 22, 122);
       padding: 10px;
       border-radius: 10px;
       width: 120px;
@@ -33,6 +46,7 @@
       cursor: pointer;
       color: white;
       font-size: 16px;
+
       &:hover {
         background-color: rgb(75, 75, 75);
       }

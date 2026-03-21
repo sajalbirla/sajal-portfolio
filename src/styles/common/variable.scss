@@ -1,3 +1,4 @@
-$background_color: #34353a;
-$text-color:#F0BF6C;
-
+$background_color: var(--white);
+$text_color: var(--dark);
+$header_available: var(--headeravailable);
+$header-unavailable: var(--header-unavailable);

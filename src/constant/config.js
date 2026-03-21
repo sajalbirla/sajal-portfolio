@@ -7,5 +7,6 @@ export class Urlconfig {
   static Email = "sajalbirla71@gmail.com";
   static GitHubUrl = "";
   static ContactDetails = 6377734843;
-  static Location = "Gurugram, haryana";
+  static Location = "Bengaluru, Karnataka";
+  static ResumeUrl = "/portfolio-website/Resume_Sajal_Birla_Developer.pdf"
 }

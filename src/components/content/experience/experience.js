@@ -6,8 +6,7 @@ import Ameyatrix from "../../assets/ameyatrix_logo.png";
 
 const Experience = () => {
   return (
-    <>
-      <div className="experience">
+      <div className="experience" id="experience">
         <div className="experience-header">Experience</div>
         <div
           style={{
@@ -101,7 +100,6 @@ const Experience = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 export default Experience;

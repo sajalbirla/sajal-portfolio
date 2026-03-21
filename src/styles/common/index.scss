@@ -2,15 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // font-family: "Manrope", "Lato", sans-serif;
-  // font-family: "Roboto Mono", monospace;
+  font-family: "Tilt Neon", sans-serif;
+  scroll-behavior: smooth;
+  --white: #ffffff;
+  --dark: #000000;
+  --headeravailable: #000000;
+  --header-unavailable: #c6c6c8;
 }
 
 body {
-  // font-family: "Lato", sans-serif;
-  font-family: "Platypi", serif;
-  // background-color: $background_color;
-  // color: white;
+  background-color: $background_color;
+  color: $text_color;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  --white: #000000;
+  --dark: #ffffff;
 }
 p {
   margin: 0;
