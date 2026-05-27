@@ -5,6 +5,8 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 const AboutMe = () => {
   const DownloadResume = () => {
+    // Track event in Google Analytics
+    window.gtag('event', 'resume_click');
     window.location.href = Urlconfig.ResumeUrl;
   };
 
