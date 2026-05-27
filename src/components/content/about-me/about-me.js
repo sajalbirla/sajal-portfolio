@@ -10,6 +10,10 @@ const AboutMe = () => {
     window.location.href = Urlconfig.ResumeUrl;
   };
 
+  const handleContactClick = () => {
+    window.location.href = '#contact';
+  };
+
   return (
     <div className="about" id="about">
       <div className="about-details">
@@ -20,7 +24,7 @@ const AboutMe = () => {
             <FileDownloadIcon />
             Resume
           </button>
-          <button className="about-details-contact-button">Contact Me</button>
+          <button className="about-details-contact-button" onClick={handleContactClick}>Contact Me</button>
         </div>
       </div>
       <div className="about-details-image">
