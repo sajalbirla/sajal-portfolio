@@ -26,7 +26,7 @@ const MySkills = () => {
     },
     {
       id: 4,
-      SkillName: "Git Control System",
+      SkillName: "Git",
       SkillImage: GitControl,
     },
     {
@@ -36,7 +36,7 @@ const MySkills = () => {
     },
     {
       id: 6,
-      SkillName: "TypeScipt",
+      SkillName: "TypeScript",
       SkillImage: TypeScipt,
     },
     {
@@ -48,13 +48,11 @@ const MySkills = () => {
   return (
     <div className="skills">
       <div className="skills-header">My Skills</div>
-      <div className="skills-content">
+      <div className="skills-chips-wrapper">
         {Skills.map((data) => (
-          <div className="skills-options" key={data.id}>
-            <div className="skills-options-image">
-              <img src={data.SkillImage} alt="Skills" />
-            </div>
-            <div className="skills-options-text">{data.SkillName}</div>
+          <div className="skill-chip" key={data.id}>
+            <img src={data.SkillImage} alt={data.SkillName} />
+            <span>{data.SkillName}</span>
           </div>
         ))}
       </div>

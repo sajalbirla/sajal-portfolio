@@ -1,4 +1,12 @@
-$background_color: var(--white);
-$text_color: var(--dark);
+$text_color: var(--text-color);
+
+// Header variables
+$header-bg: var(--header-bg);
+$selected-header: var(--selected-header);
+$header_hover: var(--header-hover);
 $header_available: var(--headeravailable);
-$header-unavailable: var(--header-unavailable);
+
+// Button variables
+$button_color: var(--button-color);
+$button-text-color: var(--button-text-color);
+$button_hover: var(--button-hover);

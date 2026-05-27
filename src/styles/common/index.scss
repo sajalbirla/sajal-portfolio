@@ -4,22 +4,32 @@
   box-sizing: border-box;
   font-family: "Tilt Neon", sans-serif;
   scroll-behavior: smooth;
-  --white: #ffffff;
-  --dark: #000000;
-  --headeravailable: #000000;
-  --header-unavailable: #c6c6c8;
+}
+
+:root {
+  /* Light Theme (Default) */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.7);
+  --text-tertiary: rgba(0, 0, 0, 0.8);
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --card-bg: rgba(0, 0, 0, 0.02);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --header-bg: #ffffff;
+  --headeravailable: #c6c6c8;
+  --header-hover: #000000;
+  --selected-header: #000000;
+  --button-color: rgb(2, 22, 122);
+  --button-hover: rgb(75, 75, 75);
+  --button-text-color: #ffffff;
 }
 
 body {
-  background-color: $background_color;
-  color: $text_color;
-  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.dark-mode {
-  --white: #000000;
-  --dark: #ffffff;
-}
 p {
   margin: 0;
 }

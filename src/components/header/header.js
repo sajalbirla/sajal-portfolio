@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
-import { enableDarkMode } from "../common/helperFunction";
+import ThemeToggle from "../common/theme-toggle/ThemeToggle";
 
 const Header = () => {
   const headeroptions = [
@@ -44,7 +44,7 @@ const Header = () => {
           </div>
         ))}
       </div>
-      <button onClick={enableDarkMode}>click me</button>
+      <ThemeToggle />
     </div>
   );
 };

@@ -2,11 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 20px;
   height: 90px;
   position: sticky;
   top: 0;
   z-index: 1;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &-logo {
     display: flex;
@@ -15,6 +18,7 @@
     &-text {
       font-size: 40px;
       font-weight: 100;
+      color: var(--text-color);
     }
 
     img {
@@ -29,17 +33,18 @@
     cursor: pointer;
 
     &-options {
-      color: $header-unavailable;
+      color: var(--text-muted);
       font-size: 22px;
       font-family: "Tilt Neon", sans-serif;
+      transition: color 0.3s ease;
 
       &-active {
-        color: $text_color;
+        color: var(--text-color);
       }
 
-      // &:hover {
-      //   color: $selected-header;
-      // }
+      &:hover {
+        color: var(--text-secondary);
+      }
     }
   }
 

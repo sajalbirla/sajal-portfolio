@@ -3,42 +3,96 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  margin: 3rem 0;
+  padding: 0 1rem;
+
   &-header {
-    margin: 1rem 0;
-    font-size: 26px;
-    font-weight: bold;
+    margin: 2rem 0 3rem 0;
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--text-color);
   }
-  &-content {
+
+  &-chips-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    max-width: 1000px;
   }
-  &-options {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 1rem;
-    width: 200px;
-    height: 180px;
-    cursor: pointer;
-    box-shadow: 0px 41px 18px 10px rgba(0, 0, 0, 0.1);
-    &-image {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      img {
-        width: 50%;
-      }
+}
+
+.skill-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  background: var(--card-bg);
+  border: 1.5px solid var(--border-color);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  white-space: nowrap;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--text-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: var(--bg-color);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills {
+    &-header {
+      font-size: 28px;
+      margin: 1.5rem 0 2rem 0;
     }
-    &-text {
-      font-size: 18px;
+
+    &-chips-wrapper {
+      gap: 0.6rem;
+      max-width: 100%;
+    }
+  }
+
+  .skill-chip {
+    padding: 0.6rem 0.9rem;
+    font-size: 13px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .skills {
+    &-header {
+      font-size: 24px;
+    }
+
+    &-chips-wrapper {
+      gap: 0.5rem;
+    }
+  }
+
+  .skill-chip {
+    padding: 0.5rem 0.8rem;
+    font-size: 12px;
+
+    img {
+      width: 18px;
+      height: 18px;
     }
   }
 }
