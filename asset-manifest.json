@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-website/static/css/main.fda53dbb.css",
-    "main.js": "/portfolio-website/static/js/main.bf8efbab.js",
+    "main.js": "/portfolio-website/static/js/main.924b8df5.js",
     "static/media/Self.png": "/portfolio-website/static/media/Self.f4177078485dbb8a08f9.png",
     "static/media/node.png": "/portfolio-website/static/media/node.11d27271a48f18a1a5a2.png",
     "static/media/react.png": "/portfolio-website/static/media/react.6760ec651a2774e80f01.png",
@@ -12,10 +12,10 @@
     "index.html": "/portfolio-website/index.html",
     "static/media/autodesk_logo.webp": "/portfolio-website/static/media/autodesk_logo.bcdc60e7a9b209b0e85c.webp",
     "main.fda53dbb.css.map": "/portfolio-website/static/css/main.fda53dbb.css.map",
-    "main.bf8efbab.js.map": "/portfolio-website/static/js/main.bf8efbab.js.map"
+    "main.924b8df5.js.map": "/portfolio-website/static/js/main.924b8df5.js.map"
   },
   "entrypoints": [
     "static/css/main.fda53dbb.css",
-    "static/js/main.bf8efbab.js"
+    "static/js/main.924b8df5.js"
   ]
 }
