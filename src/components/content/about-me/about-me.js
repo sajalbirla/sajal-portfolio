@@ -22,7 +22,7 @@ const AboutMe = () => {
         </div>
       </div>
       <div className="about-details-image">
-        <img src={SelfMemoji} />
+        <img src={SelfMemoji} alt="Sajal Birla" />
       </div>
     </div>
   );

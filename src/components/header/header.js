@@ -27,7 +27,7 @@ const Header = () => {
     <div className="header">
       <div className="header-logo">
         <span class="header-logo-text">&lt;</span>
-        <img src={logo} />
+        <img src={logo} alt="Logo" />
         <span class="header-logo-text">/&gt;</span>
       </div>
       <div className="header-bar">
