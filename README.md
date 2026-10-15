@@ -108,3 +108,43 @@ counts with custom events as if they represented separate interactions.
    event-scoped custom dimensions in GA4 as needed.
 
 Reference: [Google's event setup guide](https://developers.google.com/analytics/devguides/collection/ga4/events).
+
+### Diagnose missing resume clicks
+
+After deployment, open
+`https://sajalbirla.github.io/sajal-portfolio/?analytics_debug=1`, click Resume,
+and look for `resume_click` in the property's Admin > Data display > DebugView.
+The URL flag marks this visit's events for debugging without a special build.
+It does not enable tracking if analytics is disabled. Events explicitly target
+the configured measurement ID and resume clicks include `file_name` and
+`file_extension`. Normal visits do not have debug mode enabled.
+
+If the event appears in DebugView but not standard reports, allow processing
+time and check the property's developer/internal traffic filters. Avoid changing
+filters until their settings have been reviewed. A successful browser event does
+not confirm that the user completed the file download.
+
+### Report social and contact clicks separately
+
+Every footer social button sends `social_click` with `platform` set to
+`Instagram`, `LinkedIn`, `GitHub`, `Facebook`, `X`, or `WhatsApp` and `source`
+set to `footer`. Phone and email links send `contact_click` with `method`
+set to `phone` or `email` and `source` set to `footer`.
+
+In GA4 > Admin > Data display > Custom definitions, create event-scoped
+custom dimensions named **Social platform** (event parameter `platform`),
+**Contact method** (event parameter `method`), and **Click source** (event
+parameter `source`), unless they are already registered. Parameter names are
+case-sensitive. Allow 24–48 hours for custom dimension reporting.
+
+Create two Explore > Free form tables:
+
+- Social clicks: filter Event name exactly `social_click`, rows Social platform,
+  values Event count and Total users.
+- Contact clicks: filter Event name exactly `contact_click` and Click source
+  exactly `footer`, rows Contact method, values Event count and Total users.
+
+Event count includes repeat clicks; Total users measures distinct tracked users.
+Phone and email events measure clicks, not completed calls or sent emails.
+For a quick verification, click the buttons and inspect event parameters in
+Realtime or DebugView before waiting for the historical tables.

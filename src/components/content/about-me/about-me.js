@@ -16,7 +16,11 @@ const AboutMe = () => {
             className="about-details-resume-button"
             href={config.resumeUrl}
             download="Sajal_Birla_Resume.pdf"
-            onClick={() => trackEvent("resume_click", { source: "hero" })}
+            onClick={() => trackEvent("resume_click", {
+              source: "hero",
+              file_name: "Resume_Sajal_Birla_Developer.pdf",
+              file_extension: "pdf",
+            })}
           >
             <FileDownloadIcon />
             Resume
