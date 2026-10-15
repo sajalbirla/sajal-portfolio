@@ -49,7 +49,12 @@ test("resume is a native download without requiring analytics", () => {
   fireEvent.click(resume);
   window.gtag = jest.fn();
   fireEvent.click(resume);
-  expect(window.gtag).toHaveBeenCalledWith("event", "resume_click", { source: "hero" });
+  expect(window.gtag).toHaveBeenCalledWith("event", "resume_click", {
+    source: "hero",
+    file_name: "Resume_Sajal_Birla_Developer.pdf",
+    file_extension: "pdf",
+    send_to: "G-6VNCE9RP65",
+  });
 });
 
 test("navigation, social and contact destinations use real links", () => {
@@ -66,14 +71,17 @@ test("portfolio actions send the expected analytics labels", () => {
   const actions = [
     ["Contact Me", "contact_click", { method: "section", source: "hero" }],
     ["sajalbirla87@gmail.com", "contact_click", { method: "email", source: "footer" }],
-    ["GitHub", "social_click", { platform: "GitHub" }],
+    ["+91-6377734843", "contact_click", { method: "phone", source: "footer" }],
+    ...["GitHub", "Instagram", "LinkedIn", "Facebook", "X", "WhatsApp"].map(platform => [
+      platform, "social_click", { platform, source: "footer" },
+    ]),
     ["Experience", "navigation_click", { section: "experience" }],
   ];
   actions.forEach(([name, event, parameters]) => {
     const link = screen.getByRole("link", { name });
     link.addEventListener("click", e => e.preventDefault());
     fireEvent.click(link);
-    expect(window.gtag).toHaveBeenLastCalledWith("event", event, parameters);
+    expect(window.gtag).toHaveBeenLastCalledWith("event", event, { ...parameters, send_to: "G-6VNCE9RP65" });
   });
   expect(window.gtag).toHaveBeenCalledTimes(actions.length);
 });

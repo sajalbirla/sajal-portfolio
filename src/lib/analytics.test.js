@@ -2,6 +2,7 @@ const originalEnv = { ...process.env };
 
 beforeEach(() => {
   jest.resetModules();
+  window.history.replaceState({}, "", "/");
   process.env = { ...originalEnv };
   delete process.env.REACT_APP_GA_ENABLED;
   delete process.env.REACT_APP_GA_DEBUG;
@@ -29,7 +30,7 @@ test("production initializes once and queues early events after config", () => {
   expect(window.dataLayer.map(args => Array.from(args))).toEqual([
     ["js", expect.any(Date)],
     ["config", "G-6VNCE9RP65", {}],
-    ["event", "resume_click", { source: "hero" }],
+    ["event", "resume_click", { source: "hero", send_to: "G-6VNCE9RP65" }],
   ]);
 });
 
@@ -60,4 +61,21 @@ test("missing or failing analytics cannot break an interaction", () => {
   expect(() => trackEvent("resume_click")).not.toThrow();
   window.gtag = () => { throw new Error("Blocked"); };
   expect(() => trackEvent("resume_click")).not.toThrow();
+});
+
+
+test("URL debug mode flags the config and resume event for DebugView", () => {
+  process.env.REACT_APP_GA_ENABLED = "true";
+  window.history.replaceState({}, "", "/?analytics_debug=1");
+  const { initializeAnalytics, trackEvent } = require("./analytics");
+  initializeAnalytics();
+  trackEvent("resume_click", { source: "hero" });
+  expect(Array.from(window.dataLayer[1])).toEqual([
+    "config", "G-6VNCE9RP65", { debug_mode: true },
+  ]);
+  expect(Array.from(window.dataLayer[2])).toEqual([
+    "event", "resume_click", {
+      source: "hero", send_to: "G-6VNCE9RP65", debug_mode: true,
+    },
+  ]);
 });

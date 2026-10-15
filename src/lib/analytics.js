@@ -3,6 +3,9 @@ const enabled = process.env.REACT_APP_GA_ENABLED === "true" || (
   process.env.NODE_ENV === "production" && process.env.REACT_APP_GA_ENABLED !== "false"
 );
 
+const debugEnabled = () => process.env.REACT_APP_GA_DEBUG === "true" ||
+  new URLSearchParams(window.location.search).get("analytics_debug") === "1";
+
 // Initialize once, before rendering React, so early interactions can be queued.
 export function initializeAnalytics() {
   if (!enabled || !/^G-[A-Z0-9]+$/.test(measurementId) || document.getElementById("google-analytics")) return;
@@ -14,7 +17,7 @@ export function initializeAnalytics() {
   window.gtag("js", new Date());
   // GA sends the initial page_view from this config call. Do not send another manually.
   window.gtag("config", measurementId, {
-    ...(process.env.REACT_APP_GA_DEBUG === "true" ? { debug_mode: true } : {}),
+    ...(debugEnabled() ? { debug_mode: true } : {}),
   });
 
   const script = document.createElement("script");
@@ -27,7 +30,11 @@ export function initializeAnalytics() {
 export function trackEvent(name, parameters = {}) {
   try {
     if (typeof window.gtag === "function") {
-      window.gtag("event", name, parameters);
+      window.gtag("event", name, {
+        ...parameters,
+        send_to: measurementId,
+        ...(debugEnabled() ? { debug_mode: true } : {}),
+      });
     }
   } catch {
     // Analytics must never prevent navigation or a resume download.

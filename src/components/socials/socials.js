@@ -21,7 +21,7 @@ const SocialMedia = () => (
   <div className="socials">
     {socialLinks.map(({ label, href, Icon }) => (
       <a key={label} className="socials-icon" href={href} aria-label={label}
-        onClick={() => trackEvent("social_click", { platform: label })}>
+        onClick={() => trackEvent("social_click", { platform: label, source: "footer" })}>
         <Icon />
       </a>
     ))}
