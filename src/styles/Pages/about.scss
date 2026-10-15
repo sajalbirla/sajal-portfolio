@@ -13,10 +13,6 @@
 
   &-details {
     width: 50%;
-    &-tag {
-      font-size: 20px;
-      margin-right: 0.5rem;
-    }
 
     &-name {
       font-family: "Roboto Mono", monospace;
@@ -35,6 +31,10 @@
       align-items: center;
     }
     &-contact-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -52,6 +52,7 @@
     }
 
     &-resume-button {
+      text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
@@ -82,7 +83,7 @@
       border-radius: 20px;
       display: inline-block;
 
-      &.dark img {
+      :root[data-theme="dark"] & img {
         display: block;
       }
     }

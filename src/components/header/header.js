@@ -1,53 +1,42 @@
-import React, { useState, useContext } from "react";
+import { trackEvent } from "../../lib/analytics";
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import ThemeToggle from "../common/theme-toggle/ThemeToggle";
-import { ThemeContext } from "../../context/ThemeContext";
+
+const headerOptions = [
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "contact", label: "Contact" },
+];
 
 const Header = () => {
-  const { theme } = useContext(ThemeContext);
-  const headeroptions = [
-    {
-      id: "about",
-      Name: "About",
-    },
-    {
-      id: "experience",
-      Name: "Experience",
-    },
-    {
-      id: "contact",
-      Name: "Contact",
-    },
-  ];
-  const [activeTab, setActiveTab] = useState(headeroptions[0].id);
-  const activeTabHandler = (val) => {
-    window.location.href = `#${val}`;
-    setActiveTab(val);
-  };
+  const [activeTab, setActiveTab] = useState(headerOptions[0].id);
 
   return (
-    <div className="header">
+    <header className="header">
       <div className="header-logo">
-        <span class="header-logo-text">&lt;</span>
-        <img src={logo} alt="Logo" className={`logo ${theme}`} />
-        <span class="header-logo-text">/&gt;</span>
+        <span className="header-logo-text">&lt;</span>
+        <img src={logo} alt="Logo" className="logo" />
+        <span className="header-logo-text">/&gt;</span>
       </div>
-      <div className="header-bar">
-        {headeroptions.map((option, id) => (
-          <div
-            key={id}
+      <nav className="header-bar" aria-label="Main navigation">
+        {headerOptions.map((option) => (
+          <a
+            key={option.id}
+            href={`#${option.id}`}
             onClick={() => {
-              activeTabHandler(option.id);
+              setActiveTab(option.id);
+              trackEvent("navigation_click", { section: option.id });
             }}
-            className={`header-bar-options  ${activeTab === option.id && "header-bar-options-active"
-              }`}
+            aria-current={activeTab === option.id ? "location" : undefined}
+            className={`header-bar-options${activeTab === option.id ? " header-bar-options-active" : ""}`}
           >
-            {option.Name}
-          </div>
+            {option.label}
+          </a>
         ))}
-      </div>
+      </nav>
       <ThemeToggle />
-    </div>
+    </header>
   );
 };
 export default Header;

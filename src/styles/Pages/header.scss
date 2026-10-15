@@ -24,7 +24,7 @@
     img {
       width: 10rem;
 
-      &.dark {
+      :root[data-theme="dark"] & {
         filter: invert(1) brightness(1.1);
       }
     }
@@ -37,6 +37,7 @@
     cursor: pointer;
 
     &-options {
+      text-decoration: none;
       color: var(--text-muted);
       font-size: 22px;
       font-family: "Tilt Neon", sans-serif;
@@ -52,13 +53,4 @@
     }
   }
 
-  &-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 50px;
-    padding: 10px;
-    cursor: pointer;
-  }
 }
