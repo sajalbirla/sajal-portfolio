@@ -68,3 +68,43 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Google Analytics 4
+
+Analytics is initialized in `src/lib/analytics.js`, before React renders. It reuses
+this site's existing measurement ID, `G-6VNCE9RP65`, and loads the Google tag only
+once. The config command sends the initial page view; section links send custom
+navigation events rather than manually sending additional page views.
+
+Production builds enable tracking by default. Development and tests do not load
+the tag unless explicitly enabled. See `.env.example`: copy the needed variables
+into `.env.local`, or set them in the build environment. Restart the dev server
+or rebuild after changing variables. `REACT_APP_GA_ENABLED=false` disables tag
+initialization. Measurement IDs are public identifiers, not secrets.
+
+| Event | Trigger | Parameters |
+| --- | --- | --- |
+| `page_view` | Google tag initialization | Google tag defaults |
+| `resume_click` | Resume download link | `source: hero` |
+| `contact_click` | Contact Me, email, or phone | `method`, `source` |
+| `social_click` | Social profile link | `platform` |
+| `navigation_click` | Header section link | `section` |
+
+`resume_click` measures download intent, not successful download completion.
+Custom payloads use labels rather than email addresses or phone numbers. Native
+links still work when Analytics is unavailable. GA4 Enhanced Measurement may
+also emit its own `file_download` and outbound `click` events; do not combine those
+counts with custom events as if they represented separate interactions.
+
+### Verify after deployment
+
+1. Open the deployed site and click Resume, Contact Me, and a social profile.
+2. Check the matching property's Realtime report for the events.
+3. For local DebugView testing, set `REACT_APP_GA_ENABLED=true` and
+   `REACT_APP_GA_DEBUG=true` in `.env.local`, then restart `npm start`.
+   Use a test property ID if you do not want local events in production reports.
+4. Remove the debug overrides before a production build. For reporting by custom
+   parameters, register `source`, `method`, `platform`, and `section` as
+   event-scoped custom dimensions in GA4 as needed.
+
+Reference: [Google's event setup guide](https://developers.google.com/analytics/devguides/collection/ga4/events).

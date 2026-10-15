@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import SajalImage from "../../assets/Self.png";
-import { ThemeContext } from "../../../context/ThemeContext";
 
 const Details = () => {
-  const { theme } = useContext(ThemeContext);
   return (
       <div className="details">
         <div className="details-image">
-          <div className={`image-container ${theme}`}>
+          <div className="image-container">
             <img src={SajalImage} alt="Sajal Birla" />
           </div>
         </div>

@@ -4,7 +4,13 @@
   align-items: center;
   flex-wrap: wrap;
   &-icon {
-    border: 1px solid var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    &:hover {
+      background: var(--surface-hover);
+      border-color: var(--text-muted);
+    }
     padding: 10px;
     border-radius: 50%;
     margin: 0.5rem;
