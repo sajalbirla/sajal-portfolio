@@ -41,16 +41,16 @@ export const experienceData = [
   },
   {
     id: 2,
-    company: "Ameyatrix",
-    position: "Full Stack Developer",
-    location: "Gurugram, Haryana",
-    startDate: "JULY 2021",
-    endDate: "NOV 2021",
+    company: "Ameyatrix Business Solutions Pvt. Ltd.",
+    position: "Frontend Developer",
+    location: "Okhla, New Delhi",
+    startDate: "July 2021",
+    endDate: "Nov 2021",
     logo: Ameyatrix,
     description: [
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-      "When an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      "Developed web and app interfaces for customer-to-merchant payment workflows, collaborating with cross-functional teams to deliver a seamless transaction experience.",
+      "Strengthened feature reliability through comprehensive test coverage, contributing to a 10% reduction in customer complaints.",
+      "Implemented fraud and risk detection capabilities within payment workflows to support secure and reliable transaction processing."
     ],
     techStack: ["React", "Node.js", "MongoDB", "Express"]
   }
