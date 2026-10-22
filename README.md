@@ -148,3 +148,36 @@ Event count includes repeat clicks; Total users measures distinct tracked users.
 Phone and email events measure clicks, not completed calls or sent emails.
 For a quick verification, click the buttons and inspect event parameters in
 Realtime or DebugView before waiting for the historical tables.
+
+
+## Search visibility and SEO
+
+The public HTML includes a descriptive title, description, canonical URL,
+Open Graph/Twitter previews, and ProfilePage/Person structured data. These help
+search engines understand the page; they do not guarantee indexing, rich results,
+or a particular ranking. The app content is still rendered with React: verify
+Google's rendered page through Search Console before deciding whether to add
+prerendering. Analytics does not submit the site to Google Search.
+
+After deploying:
+
+1. Add a URL-prefix property in Google Search Console:
+   `https://sajalbirla.github.io/sajal-portfolio/`.
+2. Verify ownership using an offered method. For HTML-tag verification, insert
+   the exact verification meta tag supplied by Google into `public/index.html`
+   and deploy it. Do not invent a verification value.
+3. Submit `https://sajalbirla.github.io/sajal-portfolio/sitemap.xml` in Sitemaps.
+4. Inspect the homepage URL, run the live test, check the rendered content,
+   and request indexing. Monitor Page indexing and Search performance for
+   actual indexing status, search queries, impressions, clicks, and position.
+5. Link this preferred URL from your GitHub and LinkedIn profiles.
+
+The sitemap contains only the real homepage URL. Section anchors are not
+separate pages. Google reads robots.txt at the host root
+(`https://sajalbirla.github.io/robots.txt`), not this project's
+`/sajal-portfolio/robots.txt`; submit the sitemap directly in Search Console.
+
+If moving to a custom domain, update `package.json` homepage, the canonical,
+all absolute metadata/structured-data URLs in `public/index.html`, and the
+sitemap. Configure GitHub Pages/DNS and redirects, then verify the new Search
+Console property. Keep all URLs consistent with the final HTTPS address.

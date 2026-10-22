@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, screen, cleanup } from "@testing-library/react";
+import { fireEvent, render, screen, cleanup, within } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import App from "./App";
 
@@ -61,7 +61,7 @@ test("navigation, social and contact destinations use real links", () => {
   render(<App />);
   expect(screen.getByRole("link", { name: "Experience" })).toHaveAttribute("href", "#experience");
   expect(screen.getByRole("link", { name: "Contact Me" })).toHaveAttribute("href", "#contact");
-  expect(screen.getByRole("link", { name: "GitHub" })).toHaveAttribute("href", "https://github.com/sajalbirla");
+  expect(within(screen.getByRole("contentinfo")).getByRole("link", { name: "GitHub" })).toHaveAttribute("href", "https://github.com/sajalbirla");
   expect(screen.getByRole("link", { name: /sajalbirla87@gmail.com/ })).toHaveAttribute("href", "mailto:sajalbirla87@gmail.com");
 });
 
@@ -78,10 +78,43 @@ test("portfolio actions send the expected analytics labels", () => {
     ["Experience", "navigation_click", { section: "experience" }],
   ];
   actions.forEach(([name, event, parameters]) => {
-    const link = screen.getByRole("link", { name });
+    const scope = parameters.source === "footer" ? within(screen.getByRole("contentinfo")) : screen;
+    const link = scope.getByRole("link", { name });
     link.addEventListener("click", e => e.preventDefault());
     fireEvent.click(link);
     expect(window.gtag).toHaveBeenLastCalledWith("event", event, { ...parameters, send_to: "G-6VNCE9RP65" });
   });
   expect(window.gtag).toHaveBeenCalledTimes(actions.length);
+});
+
+
+test("hero contact links track their source independently of the footer", () => {
+  window.gtag = jest.fn();
+  render(<App />);
+  const links = within(screen.getByRole("navigation", { name: "Connect with Sajal" }));
+  ["LinkedIn", "GitHub", "Email"].forEach(name => {
+    const link = links.getByRole("link", { name });
+    link.addEventListener("click", event => event.preventDefault());
+    fireEvent.click(link);
+    expect(window.gtag).toHaveBeenLastCalledWith("event", name === "Email" ? "contact_click" : "social_click", {
+      ...(name === "Email" ? { method: "email" } : { platform: name }),
+      source: "hero", send_to: "G-6VNCE9RP65",
+    });
+  });
+});
+
+test("latest experience starts visible and each role can be expanded or collapsed", () => {
+  render(<App />);
+  const latest = screen.getByRole("button", { name: /Autodesk/ });
+  const previous = screen.getByRole("button", { name: /BigStep/ });
+  const panel = button => document.getElementById(button.getAttribute("aria-controls"));
+  expect(latest).toHaveAttribute("aria-expanded", "true");
+  expect(panel(latest)).toBeVisible();
+  expect(panel(previous)).not.toBeVisible();
+  fireEvent.click(previous);
+  expect(previous).toHaveAttribute("aria-expanded", "true");
+  expect(panel(previous)).toBeVisible();
+  expect(panel(latest)).not.toBeVisible();
+  fireEvent.click(previous);
+  expect(panel(previous)).not.toBeVisible();
 });

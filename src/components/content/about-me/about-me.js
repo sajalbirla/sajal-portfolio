@@ -2,6 +2,9 @@ import { trackEvent } from "../../../lib/analytics";
 import React from "react";
 import SelfMemoji from "../../assets/memoji_self.png";
 import { config } from "../../../constant/config";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 const AboutMe = () => {
@@ -9,8 +12,9 @@ const AboutMe = () => {
   return (
     <div className="about" id="about">
       <div className="about-details">
-        <span className="about-details-name">Sajal Birla</span>
-        <div className="about-details-role">Software Development Engineer</div>
+        <h1 className="about-details-name">Sajal Birla</h1>
+        <p className="about-details-role">Full-stack software engineer building AI-powered tools and scalable web applications.</p>
+        <p className="about-details-summary">Currently at Autodesk, working across frontend engineering, backend services, and cloud platforms.</p>
         <div className="about-details-buttons">
           <a
             className="about-details-resume-button"
@@ -23,10 +27,15 @@ const AboutMe = () => {
             })}
           >
             <FileDownloadIcon />
-            Resume
+            Download Resume
           </a>
           <a className="about-details-contact-button" href="#contact" onClick={() => trackEvent("contact_click", { method: "section", source: "hero" })}>Contact Me</a>
         </div>
+        <nav className="about-details-links" aria-label="Connect with Sajal">
+          <a href={config.linkedinUrl} onClick={() => trackEvent("social_click", { platform: "LinkedIn", source: "hero" })}><LinkedInIcon />LinkedIn</a>
+          <a href={config.githubUrl} onClick={() => trackEvent("social_click", { platform: "GitHub", source: "hero" })}><GitHubIcon />GitHub</a>
+          <a href={`mailto:${config.email}`} onClick={() => trackEvent("contact_click", { method: "email", source: "hero" })}><EmailIcon />Email</a>
+        </nav>
       </div>
       <div className="about-details-image">
         <div className="image-container">
