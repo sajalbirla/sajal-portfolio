@@ -37,10 +37,14 @@
     cursor: pointer;
 
     &-options {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding-inline: 0.5rem;
       text-decoration: none;
       color: var(--text-muted);
-      font-size: 22px;
-      font-family: "Tilt Neon", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
       transition: color 0.3s ease;
 
       &-active {
@@ -53,4 +57,48 @@
     }
   }
 
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 0.25rem 1rem;
+    padding: 0.5rem 1rem;
+
+    &-logo {
+      min-width: 0;
+      img { width: 7.5rem; }
+      &-text { font-size: 30px; }
+    }
+
+    .theme-toggle {
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    &-bar {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      width: 100%;
+      gap: 0.5rem;
+      justify-content: space-between;
+      &-options {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+// Let short landscape screens use their height for content.
+@media (max-height: 500px) and (orientation: landscape) {
+  .header { position: static; }
 }

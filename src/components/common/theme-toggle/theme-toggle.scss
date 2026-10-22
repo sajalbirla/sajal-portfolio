@@ -1,4 +1,7 @@
 .theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  flex-shrink: 0;
   background: none;
   border: none;
   cursor: pointer;
