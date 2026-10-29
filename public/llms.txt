@@ -1,0 +1,20 @@
+# Sajal Birla
+
+> Personal portfolio of Sajal Birla, a full-stack software engineer at Autodesk in Bengaluru, India, building AI-powered tools and scalable web applications.
+
+This portfolio presents Sajal's professional experience, technical skills, resume, and contact links. The canonical website is https://sajalbirla.github.io/sajal-portfolio/. The HTML portfolio uses React; the Markdown overview below can be read without executing JavaScript. Section anchors are locations within the same page, not separate pages.
+
+## Portfolio
+
+- [Portfolio overview in Markdown](https://sajalbirla.github.io/sajal-portfolio/index.md): Readable summary of the profile, employment history, skills, and professional links.
+- [Portfolio website](https://sajalbirla.github.io/sajal-portfolio/): Main website and canonical source.
+- [Resume](https://sajalbirla.github.io/sajal-portfolio/Resume_Sajal_Birla_Developer.pdf): Downloadable professional resume in PDF format.
+
+## Professional profiles
+
+- [GitHub](https://github.com/sajalbirla): Public repositories and developer profile.
+- [LinkedIn](https://www.linkedin.com/in/sajalbirla): Professional profile.
+
+## Optional
+
+- [Sitemap](https://sajalbirla.github.io/sajal-portfolio/sitemap.xml): Canonical page URLs for search engines.

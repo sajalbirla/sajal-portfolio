@@ -152,6 +152,14 @@ Realtime or DebugView before waiting for the historical tables.
 
 ## Search visibility and SEO
 
+`public/llms.txt` provides an overview and curated links for AI tools, and
+`public/index.md` provides a readable portfolio summary without JavaScript.
+The homepage links to both resources. Keep these files synchronized with
+the profile, experience, skills, and resume when updating the website.
+They are published under `/sajal-portfolio/`, the root of this project site.
+The llms.txt proposal does not guarantee AI search inclusion or ranking and
+does not replace the sitemap, robots.txt, or search-engine verification.
+
 The public HTML includes a descriptive title, description, canonical URL,
 Open Graph/Twitter previews, and ProfilePage/Person structured data. These help
 search engines understand the page; they do not guarantee indexing, rich results,
