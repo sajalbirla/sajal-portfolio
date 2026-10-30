@@ -1,10 +1,10 @@
-import JavaScript from "../components/assets/javascript-1.png";
-import ReactJs from "../components/assets/react.png";
-import NodeJs from "../components/assets/node.png";
-import GitControl from "../components/assets/git.png";
-import CPP from "../components/assets/Cpp.png";
-import TypeScript from "../components/assets/typescript.png";
-import Sass from "../components/assets/sass.png";
+import JavaScript from "../components/assets/optimized/javascript-1.webp";
+import ReactJs from "../components/assets/optimized/react.webp";
+import NodeJs from "../components/assets/optimized/node.webp";
+import GitControl from "../components/assets/optimized/git.webp";
+import CPP from "../components/assets/optimized/Cpp.webp";
+import TypeScript from "../components/assets/optimized/typescript.webp";
+import Sass from "../components/assets/optimized/sass.webp";
 
 export const skills = [
   {

@@ -1,6 +1,6 @@
-import BigstepLogo from "../components/assets/bigstep_logo.jpeg";
-import Ameyatrix from "../components/assets/ameyatrix_logo.png";
-import AutodeskLogo from "../components/assets/autodesk_logo.webp";
+import BigstepLogo from "../components/assets/optimized/bigstep.webp";
+import Ameyatrix from "../components/assets/optimized/ameyatrix.webp";
+import AutodeskLogo from "../components/assets/optimized/autodesk.webp";
 
 export const experienceData = [
   {

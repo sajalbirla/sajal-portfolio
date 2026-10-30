@@ -69,6 +69,32 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+## Performance and image delivery
+
+The page uses responsive WebP images generated from the original assets. Hero
+images load eagerly with high priority; below-the-fold images use native lazy
+loading. Explicit dimensions reserve space before images load. A hidden mobile
+portrait is lazy-loaded so it does not consume the initial mobile download.
+
+After changing an original image, run `npm run optimize:images` and commit the
+updated files in `src/components/assets/optimized/`. Keep hero variants and
+`src/data/image-layout.json` synchronized with the image sizes in the layout.
+Sharp is a development dependency; it is not included in the browser bundle.
+
+`npm run build` automatically runs `scripts/optimize-build.cjs`. It inlines the
+small production stylesheet and adds a responsive, high-priority hero preload
+using the actual hashed asset URLs. `.env.production` disables image inlining so
+the preload and React refer to the same cacheable files. The build script rejects
+CSS larger than 24 KiB or CSS containing URLs, which need a review before inlining.
+Deploy through `npm run build`, not a direct `react-scripts build` invocation.
+
+GitHub Pages controls HTTP cache lifetimes. Adding a project `_headers` file or
+HTML cache meta tags does not configure those headers. Longer cache lifetimes
+would require a hosting/CDN configuration that supports response-header control.
+The Google Analytics tag remains enabled; third-party execution and cache policy
+can still appear in performance reports. Compare audits under matching settings;
+local Lighthouse scores are not equivalent to PageSpeed results or field data.
+
 ## Google Analytics 4
 
 Analytics is initialized in `src/lib/analytics.js`, before React renders. It reuses
