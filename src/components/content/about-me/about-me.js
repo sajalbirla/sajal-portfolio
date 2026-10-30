@@ -1,6 +1,11 @@
 import { trackEvent } from "../../../lib/analytics";
 import React from "react";
-import SelfMemoji from "../../assets/memoji_self.png";
+import hero320 from "../../assets/optimized/hero-320.webp";
+import hero480 from "../../assets/optimized/hero-480.webp";
+import hero640 from "../../assets/optimized/hero-640.webp";
+import hero960 from "../../assets/optimized/hero-960.webp";
+import hero1200 from "../../assets/optimized/hero-1200.webp";
+import imageLayout from "../../../data/image-layout.json";
 import { config } from "../../../constant/config";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -39,7 +44,16 @@ const AboutMe = () => {
       </div>
       <div className="about-details-image">
         <div className="image-container">
-          <img src={SelfMemoji} alt="Sajal Birla" />
+          <img
+            src={hero640}
+            srcSet={`${hero320} 320w, ${hero480} 480w, ${hero640} 640w, ${hero960} 960w, ${hero1200} 1200w`}
+            sizes={imageLayout.heroSizes}
+            width="2048"
+            height="2048"
+            fetchpriority="high"
+            decoding="async"
+            alt="Sajal Birla"
+          />
         </div>
       </div>
     </div>
