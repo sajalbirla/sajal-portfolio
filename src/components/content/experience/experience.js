@@ -1,6 +1,6 @@
+import { KeyboardArrowDownIcon } from "../../common/icons";
 import { experienceData } from "../../../data/experience";
 import React, { useState } from "react";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const Experience = () => {
   const [expandedId, setExpandedId] = useState(experienceData[0]?.id ?? null);
@@ -16,7 +16,7 @@ const Experience = () => {
         {experienceData.map((job) => (
           <div key={job.id} className="experience-item">
             <div className="experience-logo-badge">
-              <img src={job.logo} alt={job.company} />
+              <img src={job.logo} width="160" height="160" loading="lazy" decoding="async" alt={job.company} />
             </div>
             <div className="experience-content">
               <button

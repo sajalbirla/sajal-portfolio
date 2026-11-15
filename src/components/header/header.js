@@ -1,6 +1,6 @@
 import { trackEvent } from "../../lib/analytics";
 import React, { useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/optimized/logo.webp";
 import ThemeToggle from "../common/theme-toggle/ThemeToggle";
 
 const headerOptions = [
@@ -16,7 +16,7 @@ const Header = () => {
     <header className="header">
       <div className="header-logo">
         <span className="header-logo-text">&lt;</span>
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} width="470" height="134" decoding="async" alt="Logo" className="logo" />
         <span className="header-logo-text">/&gt;</span>
       </div>
       <nav className="header-bar" aria-label="Main navigation">

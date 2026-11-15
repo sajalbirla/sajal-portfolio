@@ -1,10 +1,8 @@
+import { EmailIcon, CallIcon, LocationOnIcon } from "../common/icons";
 import { trackEvent } from "../../lib/analytics";
 import React from "react";
 import SocialMedia from "../socials/socials";
 import { config } from "../../constant/config";
-import EmailIcon from "@mui/icons-material/Email";
-import CallIcon from "@mui/icons-material/Call";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 const Footer = () => {
   return (
     <footer className="footer" id="contact">

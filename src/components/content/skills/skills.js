@@ -9,7 +9,7 @@ const MySkills = () => {
       <div className="skills-chips-wrapper">
         {skills.map((skill) => (
           <div className="skill-chip" key={skill.id}>
-            <img src={skill.image} alt={skill.name} />
+            <img src={skill.image} width="48" height="48" loading="lazy" decoding="async" alt={skill.name} />
             <span>{skill.name}</span>
           </div>
         ))}

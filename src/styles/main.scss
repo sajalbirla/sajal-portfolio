@@ -8,3 +8,14 @@
 @import "./Pages/content/experience.scss";
 @import "./Pages/header.scss";
 @import "./Pages/footer.scss";
+
+// Match the original SVG icon sizing without a runtime styling library.
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  fill: currentColor;
+  font-size: 1.5rem;
+  user-select: none;
+}

@@ -1,6 +1,5 @@
+import { WbSunnyIcon, DarkModeIcon } from "../icons";
 import React, { useContext } from "react";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { ThemeContext } from "../../../context/ThemeContext";
 import "./theme-toggle.scss";
 

@@ -1,12 +1,22 @@
 import React from "react";
-import SajalImage from "../../assets/Self.png";
+import portrait320 from "../../assets/optimized/portrait-320.webp";
+import portrait640 from "../../assets/optimized/portrait-640.webp";
 
 const Details = () => {
   return (
       <div className="details">
         <div className="details-image">
           <div className="image-container">
-            <img src={SajalImage} alt="Sajal Birla" />
+            <img
+              src={portrait320}
+              srcSet={`${portrait320} 320w, ${portrait640} 640w`}
+              sizes="(max-width: 1300px) 25vw, 315px"
+              width="1562"
+              height="2132"
+              loading="lazy"
+              decoding="async"
+              alt="Sajal Birla"
+            />
           </div>
         </div>
         <div className="details-description">
