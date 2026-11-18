@@ -220,19 +220,17 @@ Console property. Keep all URLs consistent with the final HTTPS address.
 
 `npm run build` now renders the actual React app into `build/index.html` after
 asset optimization. Visitors and crawlers receive the headings, profile,
-experience, skills, contact links, and profile questions without executing
+experience, skills, and contact links without executing
 JavaScript. The client uses `createRoot` to render the interactive app over that
 initial content; this is build-time rendering, not a server requirement or React
 hydration. The no-JavaScript stylesheet exposes all experience panels.
 
-Edit `src/data/profile-questions.json` to update the visible answers. The build
-also appends these same answers to the deployed Markdown overview. Keep the
-Person/ProfilePage data in `public/index.html`, the existing Markdown overview,
+Keep the Person/ProfilePage data in `public/index.html`, the existing Markdown overview,
 and the employment content consistent when facts change. Do not add claims,
 ratings, credentials, or project outcomes that are not supported by the profile.
 
 `scripts/verify-search.cjs` runs after each production build and checks content
-without JavaScript, JSON-LD identity and canonical URL, question parity, internal
+without JavaScript, JSON-LD identity and canonical URL, internal
 anchors, local assets, and sitemap discovery. Babel and JSDOM are build-only
 utilities; they do not ship in the browser bundle.
 

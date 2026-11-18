@@ -16,13 +16,6 @@ assert.ok(!html.includes('%PUBLIC_URL%'));
 const schema = JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent);
 assert.equal(schema.url, canonical);
 assert.equal(schema.mainEntity.name, document.querySelector('h1').textContent);
-const markdown = fs.readFileSync(path.join(build, 'index.md'), 'utf8');
-for (const { id, question, answer } of require('../src/data/profile-questions.json')) {
-  const article = document.getElementById(id);
-  assert.equal(article.querySelector('h3').textContent, question);
-  assert.equal(article.querySelector('p').textContent, answer);
-  assert.ok(markdown.includes(answer));
-}
 const sitePath = new URL(canonical).pathname;
 for (const element of document.querySelectorAll('a[href], img[src]')) {
   const url = element.getAttribute(element.tagName === 'IMG' ? 'src' : 'href');
@@ -33,4 +26,4 @@ for (const element of document.querySelectorAll('a[href], img[src]')) {
 }
 assert.ok(fs.readFileSync(path.join(build, 'sitemap.xml'), 'utf8').includes(`<loc>${canonical}</loc>`));
 assert.ok(fs.readFileSync(path.join(build, 'robots.txt'), 'utf8').includes(`Sitemap: ${canonical}sitemap.xml`));
-console.log('Verified static content, profile data, Markdown answers, anchors, assets, and sitemap.');
+console.log('Verified static content, profile data, anchors, assets, and sitemap.');

@@ -44,13 +44,7 @@ try {
   if (!html.includes(root)) throw new Error('Expected an empty React root before prerendering.');
   fs.writeFileSync(htmlPath, html.replace(root, () => `<div id="root">${markup}</div>`));
 
-  // Use the same question data for the visible page and the Markdown overview.
-  const questions = require('../src/data/profile-questions.json');
-  const overviewPath = path.join(build, 'index.md');
-  const overview = fs.readFileSync(overviewPath, 'utf8');
-  fs.writeFileSync(overviewPath, overview + '\n## Questions about Sajal Birla\n\n' +
-    questions.map(({ question, answer }) => `### ${question}\n\n${answer}\n`).join('\n'));
-  console.log('Rendered portfolio HTML and generated profile answers in Markdown.');
+  console.log('Rendered portfolio HTML.');
 } finally {
   require.extensions['.js'] = previousJs;
   for (const extension of extensions) {
