@@ -1,0 +1,13 @@
+.profile-questions {
+  margin: 3rem auto;
+  padding: 0 1rem;
+  max-width: 900px;
+  color: var(--text-color);
+  overflow-wrap: anywhere;
+
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1.5rem; }
+  article { padding: 1rem 0; border-bottom: 1px solid var(--border-color); scroll-margin-top: 6rem; }
+  h3 { font-size: 1.125rem; margin: 0 0 0.5rem; }
+  p { line-height: 1.75; }
+  a { color: inherit; text-underline-offset: 0.2em; }
+}

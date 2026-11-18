@@ -4,7 +4,7 @@ export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() =>
-    document.documentElement.dataset.theme === "light" ? "light" : "dark"
+    typeof document !== "undefined" && document.documentElement.dataset.theme === "light" ? "light" : "dark"
   );
 
   useEffect(() => {

@@ -5,6 +5,8 @@ import MainLayout from "../MainLayout/MainLayout";
 import MySkills from "../../content/skills/skills";
 import Experience from "../../content/experience/experience";
 
+import ProfileQuestions from "../../content/profile-questions/ProfileQuestions";
+
 const LandingPage = () => {
   return (
     <MainLayout>
@@ -12,6 +14,7 @@ const LandingPage = () => {
       <Details />
       <MySkills />
       <Experience />
+      <ProfileQuestions />
     </MainLayout>
   );
 };

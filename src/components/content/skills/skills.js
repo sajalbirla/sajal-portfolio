@@ -4,8 +4,8 @@ import React from "react";
 const MySkills = () => {
 
   return (
-    <div className="skills">
-      <div className="skills-header">My Skills</div>
+    <section className="skills" id="skills" aria-labelledby="skills-heading">
+      <h2 className="skills-header" id="skills-heading">Technical skills</h2>
       <div className="skills-chips-wrapper">
         {skills.map((skill) => (
           <div className="skill-chip" key={skill.id}>
@@ -14,7 +14,7 @@ const MySkills = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 export default MySkills;

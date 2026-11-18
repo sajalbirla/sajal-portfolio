@@ -215,3 +215,40 @@ If moving to a custom domain, update `package.json` homepage, the canonical,
 all absolute metadata/structured-data URLs in `public/index.html`, and the
 sitemap. Configure GitHub Pages/DNS and redirects, then verify the new Search
 Console property. Keep all URLs consistent with the final HTTPS address.
+
+## Answer and generative search readiness
+
+`npm run build` now renders the actual React app into `build/index.html` after
+asset optimization. Visitors and crawlers receive the headings, profile,
+experience, skills, contact links, and profile questions without executing
+JavaScript. The client uses `createRoot` to render the interactive app over that
+initial content; this is build-time rendering, not a server requirement or React
+hydration. The no-JavaScript stylesheet exposes all experience panels.
+
+Edit `src/data/profile-questions.json` to update the visible answers. The build
+also appends these same answers to the deployed Markdown overview. Keep the
+Person/ProfilePage data in `public/index.html`, the existing Markdown overview,
+and the employment content consistent when facts change. Do not add claims,
+ratings, credentials, or project outcomes that are not supported by the profile.
+
+`scripts/verify-search.cjs` runs after each production build and checks content
+without JavaScript, JSON-LD identity and canonical URL, question parity, internal
+anchors, local assets, and sitemap discovery. Babel and JSDOM are build-only
+utilities; they do not ship in the browser bundle.
+
+On GitHub project Pages, `/sajal-portfolio/robots.txt` does **not** control crawler
+access: crawlers use `https://sajalbirla.github.io/robots.txt`. Manage that file in
+the account-root site if crawl rules are needed. The project robots file records
+the sitemap location, but submit the full sitemap URL directly in Search Console
+and Bing Webmaster Tools after deployment. No new bot restrictions are added.
+
+After deployment, inspect the canonical URL in Search Console and Bing Webmaster
+Tools, verify the rendered content, and request indexing if needed. Track search
+queries and impressions in Search Console and citations in Bing's AI Performance
+report where available. `llms.txt` is an optional discovery aid, not an indexing
+requirement. These changes improve content access and clarity; they do not
+guarantee rankings or citations in generated answers.
+
+References:
+- https://developers.google.com/search/docs/appearance/ai-features
+- https://www.bing.com/webmasters/help/bing-webmaster-guidelines-30fba23a

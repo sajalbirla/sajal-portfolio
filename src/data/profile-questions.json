@@ -1,0 +1,22 @@
+[
+  {
+    "id": "who-is-sajal-birla",
+    "question": "Who is Sajal Birla?",
+    "answer": "Sajal Birla is a full-stack software engineer based in Bengaluru, Karnataka, India. He builds web applications and AI-powered tools, with experience across frontend interfaces, backend services, and cloud platforms."
+  },
+  {
+    "id": "current-role",
+    "question": "Where does Sajal Birla work?",
+    "answer": "Sajal Birla works as a Software Development Engineer at Autodesk, a role he started in July 2024. He previously worked at BigStep Technologies and Ameyatrix Business Solutions."
+  },
+  {
+    "id": "technologies",
+    "question": "What technologies does Sajal Birla use?",
+    "answer": "His featured skills include JavaScript, TypeScript, React, Node.js, Git, C++, and Sass. His professional experience also includes MongoDB, AWS Lambda, Redux, WebRTC, Contentful, and Azure OpenAI."
+  },
+  {
+    "id": "ai-experience",
+    "question": "What AI engineering work has Sajal Birla done?",
+    "answer": "At Autodesk, his work includes an AI-powered code reviewer and a migration tool for moving content from Adobe Experience Manager to Contentful using TypeScript and Azure OpenAI. His experience section describes these projects and their outcomes."
+  }
+]
