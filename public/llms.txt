@@ -10,8 +10,6 @@ This portfolio presents Sajal's professional experience, technical skills, resum
 - [Portfolio website](https://sajalbirla.github.io/sajal-portfolio/): Main website and canonical source.
 - [Resume](https://sajalbirla.github.io/sajal-portfolio/Resume_Sajal_Birla_Developer.pdf): Downloadable professional resume in PDF format.
 
-- [Profile questions](https://sajalbirla.github.io/sajal-portfolio/#profile-questions): Direct answers about Sajal’s role, technologies, and AI engineering experience.
-
 ## Professional profiles
 
 - [GitHub](https://github.com/sajalbirla): Public repositories and developer profile.
